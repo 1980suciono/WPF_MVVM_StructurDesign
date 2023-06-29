@@ -35,7 +35,7 @@ namespace WPF_MVVM_StructurDesign.Models
      
         public void DoOleDbConnection()
         {
-            //string connString = "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=DB_MVVM_Desain;Data Source=DESKTOP-TM7END3\\SQLEXPRESS";
+          
             objSqlConnection = new OleDbConnection(LoginHelper.ConnectionString);
 
             objSqlCommand = new OleDbCommand
