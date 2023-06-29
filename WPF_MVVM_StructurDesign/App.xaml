@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:WPF_MVVM_StructurDesign"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!-- connectionstring dibuat secara programatically supaya flexyble -->
     </Application.Resources>
 </Application>
