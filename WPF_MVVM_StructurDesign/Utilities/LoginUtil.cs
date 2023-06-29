@@ -17,7 +17,7 @@ namespace WPF_MVVM_StructurDesign.Utilities
 	public class LoginUtil
 	{
 		//ini kode untuk form login
-		
+		//dictionary digunakan utk menampung banyak user
 		public LoginUtil() : this(new Dictionary<string, string>())
 		{
 		}
