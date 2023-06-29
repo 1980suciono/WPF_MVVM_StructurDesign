@@ -11,6 +11,7 @@ namespace WPF_MVVM_StructurDesign.Utilities
     {   
     	public FileUtil()
     	{
+		//library lebih baru
     		BaseDirectory=AppContext.BaseDirectory;
     		
     		//no longer supported
