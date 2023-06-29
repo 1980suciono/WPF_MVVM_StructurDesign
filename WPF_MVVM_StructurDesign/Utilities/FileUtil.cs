@@ -15,7 +15,7 @@ namespace WPF_MVVM_StructurDesign.Utilities
     		BaseDirectory=AppContext.BaseDirectory;
     		
     		//no longer supported
-    		BaseDirectory=AppDomain.CurrentDomain.BaseDirectory;
+    		//BaseDirectory=AppDomain.CurrentDomain.BaseDirectory;
     	}
     	
     	private string baseDirectory;
