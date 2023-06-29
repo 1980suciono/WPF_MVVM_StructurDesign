@@ -11,10 +11,11 @@ namespace WPF_MVVM_StructurDesign.Utilities
     {   
     	public FileUtil()
     	{
-    		BaseDirectory=AppContext.BaseDirectory;
+		//pake library yg lebih baru
+    		//BaseDirectory=AppContext.BaseDirectory;
     		
     		//no longer supported
-    		//BaseDirectory=AppDomain.CurrentDomain.BaseDirectory;
+    		BaseDirectory=AppDomain.CurrentDomain.BaseDirectory;
     	}
     	
     	private string baseDirectory;
