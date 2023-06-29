@@ -1,0 +1,45 @@
+﻿<Window x:Class="WPF_MVVM_StructurDesign.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_MVVM_StructurDesign"
+        mc:Ignorable="d"
+        
+        xmlns:vw="clr-namespace:WPF_MVVM_StructurDesign.Views"
+        xmlns:vwm="clr-namespace:WPF_MVVM_StructurDesign.ViewModels"
+        Title="MainWindow" Height="450" Width="686">
+    <Window.Resources>
+            <DataTemplate DataType="{x:Type vwm:FirstPageViewModel}">
+
+                <vw:FirstPage/>
+
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vwm:SubFirstPageViewModel}">
+
+                <vw:SubFirstPage/>
+
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vwm:SecondPageViewModel}">
+
+                <vw:SecondPage/>
+
+            </DataTemplate>
+        <DataTemplate DataType="{x:Type vwm:LoginPageViewModel}">
+
+            <vw:LoginPage/>
+
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vwm:SubLoginPageViewModel}">
+
+            <vw:SubLoginPage/>
+
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+         <StackPanel>
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+        </StackPanel>
+    </Grid>
+   
+</Window>
