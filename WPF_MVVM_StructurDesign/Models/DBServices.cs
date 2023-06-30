@@ -270,18 +270,27 @@ namespace WPF_MVVM_StructurDesign.Models
             return objItemsList;
         }
 
-        public List<Items> Search(string param)
+         public List<Items> Search(string param)
         {
             try
             {
-                
-                objItemsList = new List<Items>();
+                DateTime date = new DateTime();
+               objItemsList = new List<Items>();
 
                 objSqlCommand.Parameters.Clear();
-                objSqlCommand.CommandText = "SelectItemByParams";
-                objSqlCommand.Parameters.AddWithValue("@NamaBarang", '%' + param + '%');
-                objSqlCommand.Parameters.AddWithValue("@HargaBarang", param);
-                objSqlCommand.Parameters.AddWithValue("@JumlahBarang",  param );                          
+                if (DateTime.TryParseExact(param,"d/M/yyyy",new CultureInfo("id-ID"),DateTimeStyles.None,out date))
+                {
+                    objSqlCommand.CommandText = "SelectItemByInputDate";
+                    objSqlCommand.Parameters.AddWithValue("@TanggalMasuk1", date);
+                    objSqlCommand.Parameters.AddWithValue("@TanggalMasuk2", date);
+                }
+                else
+                {
+                    objSqlCommand.CommandText = "SelectItemByParams";
+                    objSqlCommand.Parameters.AddWithValue("@NamaBarang", '%' + param + '%');
+                    objSqlCommand.Parameters.AddWithValue("@HargaBarang", param);
+                    objSqlCommand.Parameters.AddWithValue("@JumlahBarang", param);
+                }                          
 
                 objSqlConnection.Open();
 
