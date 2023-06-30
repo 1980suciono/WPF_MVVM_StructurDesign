@@ -93,7 +93,7 @@ namespace WPF_MVVM_StructurDesign.Models
                 {
 
                     objSqlCommand.Parameters.Clear();
-                    objSqlCommand.CommandText = "InsertItemById";
+                    objSqlCommand.CommandText = "InsertItems";
                     objSqlCommand.Parameters.AddWithValue("@NamaBarang", objItems.NamaBarang);
                     objSqlCommand.Parameters.AddWithValue("@JumlahBarang", new CurrencyUtil().RectifiedFormat(objItems.JumlahBarang));
                     objSqlCommand.Parameters.AddWithValue("@HargaBarang", new CurrencyUtil().RectifiedFormat(objItems.HargaBarang, false));
