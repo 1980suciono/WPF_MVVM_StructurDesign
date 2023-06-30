@@ -235,7 +235,13 @@ namespace WPF_MVVM_StructurDesign.Models
             OleDbDataAdapter da;
             try
             {
-                
+                DateTime dateTemp = new DateTime();
+                dateTemp = date2;
+                if (date2 < date1)
+                {
+                    date2=date1;
+                    date1 = dateTemp;
+                }
                 objSqlCommand.Parameters.Clear();
                 objSqlCommand.CommandText = "SelectItemByInputDate";
                 objSqlCommand.Parameters.AddWithValue("@TanggalMasuk1", date1);
