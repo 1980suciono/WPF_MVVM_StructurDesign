@@ -151,24 +151,45 @@ namespace WPF_MVVM_StructurDesign.ViewModels
             }
 
         }
-        public void SaveData()
+         public void SaveData()
         {
             try
             {
-                var isSaved = objDBService.Add(CurrentItem);
-                LoadData();
-                if (isSaved)
+                bool isSaved = false,isUpdate=false;
+                SearchItem = (CurrentItem.NamaBarang != null) ? CurrentItem.NamaBarang : "";
+                ObservableCollection<Items> localItemList = new ObservableCollection<Items>(objDBService.Search(SearchItem));
+
+                if (localItemList == null || !localItemList.Any())
                 {
-                    MessageBox.Show("saved");
+                    isSaved = objDBService.Add(CurrentItem);
+                    
                 }
-                else MessageBox.Show( "save failled");
+                else
+                {
+                    var result = MessageBox.Show("ditemukan barang yang sama, terus rekam maka dilakukan proses update","Peringatan",MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        isUpdate=objDBService.Update(CurrentItem);
+                    }
+                }
+                 
+                if (isSaved||isUpdate)
+                {
+                    if (isSaved) 
+                    {
+                        MessageBox.Show("saved");
+                    }
+                    LoadData();
+                }
+                else MessageBox.Show("save failled"); 
+               
             }
             catch (Exception ex)
             {
                 base.Message = ex.ToString();
             }
         }
-        #endregion
+	#endregion
 
         #region Finddata
         private RelayCommand findCommand;
